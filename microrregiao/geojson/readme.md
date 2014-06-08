@@ -1,1 +1,0 @@
-ogr2ogr -f GeoJSON microrregiao.json ../shapefile/Micro.shp

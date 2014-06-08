@@ -1,0 +1,1 @@
+ogr2ogr -f GeoJSON uf.json ../shapefile/uf.shp
