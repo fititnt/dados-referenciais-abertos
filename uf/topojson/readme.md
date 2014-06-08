@@ -1,1 +1,1 @@
-ogr2ogr -f GeoJSON uf.json ../shapefile/uf.shp
+topojson ../shapefile/uf.shp -o uf.json --id-property=UF_05 --p name=NOME_UF,codigo=+GEOCODIGO,regiao=REGIAO
