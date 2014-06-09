@@ -4,7 +4,7 @@ GIS Dataset Brasil
 Geographic Information Systems (GIS) Dataset Brasil. Coleções de arquivos com 
 dados geoespaciais em forma de vetor.
 
-[![Previa do mapa de microregião](https://github.com/fititnt/gis-dataset-brasil/raw/master/microrregiao/topojson/preview.png "Previa do mapa de microregião")](https://github.com/fititnt/gis-dataset-brasil/blob/master/microrregiao/topojson/microrregiao.json)
+[![Previa do mapa de microregião](https://github.com/fititnt/gis-dataset-brasil/raw/master/microrregiao/topojson/preview.png "Previa do mapa de microregião. Clique para interagir")](https://github.com/fititnt/gis-dataset-brasil/blob/master/microrregiao/topojson/microrregiao.json)
 
 **Conjunto de dados**
 - UF
@@ -12,13 +12,15 @@ dados geoespaciais em forma de vetor.
 - Microrregião
 - Municípios
 
-**Formato dos dados**
+**Formatos disponibilizados**
 - Shapefile
 - GeoJSON
-- TopoJSON
+- TopoJSON (compacto, ideal para uso na web)
 
 Autoria & Licença
 -----------------
-Exceto aonde dito contrário, como nos shapefiles, o autor é 
-**Emerson Rocha Luiz** <emerson@alligo.com.br> e a licença 
-**Open Data Commons Open Database License (ODbL)**
+Mantenedor: **Emerson Rocha Luiz** <emerson@alligo.com.br>
+
+Licença: **Open Data Commons Open Database License (ODbL)**
+
+Shapefiles obtidos de http://www.brasilemcidades.gov.br
