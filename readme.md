@@ -17,10 +17,22 @@ dados geoespaciais em forma de vetor.
 - GeoJSON
 - TopoJSON (compacto, ideal para uso na web)
 
-Autoria & Licença
------------------
-Mantenedor: **Emerson Rocha Luiz** <emerson@alligo.com.br>
+## Autoria
 
-Licença: **Open Data Commons Open Database License (ODbL)**
+> Nota pertinente: o tipo de informação contido neste repositório foi criado
+a partir do trabalho de centenas de pessoas (antes mesmo da existência de
+computadores digitais) ao longo de séculos. Em função disso, e da falta de
+explicitamente terem definido licença de uso e citarem entidade que teria os
+direitos de cópia, a licença DbCL é sugerida, porém possivelmente poderia ser
+usado domínio público.
 
-Shapefiles obtidos de http://www.brasilemcidades.gov.br
+Shapefiles iniciais obtidos de <http://www.brasilemcidades.gov.br> (site
+original indisponível).
+
+## Mantenedor
+
+**Emerson Rocha Luiz** <emerson@ieee.org>
+
+## Licensa
+
+[ODC Database Contents License (DbCL)](LICENSE).
