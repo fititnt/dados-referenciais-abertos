@@ -1,2 +1,4 @@
+*.7z
+*.zip
 /nbproject/
 _site/
