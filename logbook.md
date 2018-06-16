@@ -81,4 +81,84 @@ $ mkdir -p {uf,mesorregiao,microrregiao,municipio}/shapefile/2018/
 # fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [15:36:33]
 $ touch {uf,mesorregiao,microrregiao,municipio}/shapefile/2018/README.md
 
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 o [15:40:10]
+$ cp temp/BR/BRMUE250GC_SIR* municipio/shapefile/2018/
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [15:41:51]
+$ cp temp/BR/BRMIE250GC* microrregiao/shapefile/2018/
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [15:43:33]
+$ cp temp/BR/BRMEE250GC* mesorregiao/shapefile/2018/
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [15:44:26]
+$ cp temp/BR/BRUFE250GC* uf/shapefile/2018/
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [15:44:59]
+$ echo -e "# The .shp are too big to commit. We will commit compressed 7z \n*.shp" > {uf,mesorregiao,microrregiao,municipio}/shapefile/2018/.gitignore 
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [16:03:23]
+$ cd /alligo/code/fititnt/gis-dataset-brasil/uf/shapefile/2018
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/uf/shapefile/2018 on git:atualizacao-jun-2018 x [16:05:25]
+$ 7z a BRUFE250GC_SIR.shp.7z BRUFE250GC_SIR.shp
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive BRUFE250GC_SIR.shp.7z
+
+Compressing  BRUFE250GC_SIR.shp      
+
+Everything is Ok
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/mesorregiao/shapefile/2018 on git:atualizacao-jun-2018 x [16:06:19]
+$ 7z a BRMEE250GC_SIR.shp.7z BRMEE250GC_SIR.shp
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive BRMEE250GC_SIR.shp.7z
+
+Compressing  BRMEE250GC_SIR.shp      
+
+Everything is Ok
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/mesorregiao/shapefile/2018 on git:atualizacao-jun-2018 x [16:06:42]
+$ cd /alligo/code/fititnt/gis-dataset-brasil/microrregiao/shapefile/2018
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/microrregiao/shapefile/2018 on git:atualizacao-jun-2018 x [16:07:50]
+$ 7z a BRMIE250GC_SIR.shp.7z BRMIE250GC_SIR.shp
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive BRMIE250GC_SIR.shp.7z
+
+Compressing  BRMIE250GC_SIR.shp      
+
+Everything is Ok
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/microrregiao/shapefile/2018 on git:atualizacao-jun-2018 x [16:08:47]
+$ cd /alligo/code/fititnt/gis-dataset-brasil/municipio/shapefile/2018
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/municipio/shapefile/2018 on git:atualizacao-jun-2018 x [16:09:16]
+$ 7z a BRMUE250GC_SIR.shp.7z BRMUE250GC_SIR.shp
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive BRMUE250GC_SIR.shp.7z
+
+Compressing  BRMUE250GC_SIR.shp      
+
+Everything is Ok
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/municipio/shapefile/2018 on git:atualizacao-jun-2018 x [16:10:49]
+$ cd /alligo/code/fititnt/gis-dataset-brasil/
+
 ```
