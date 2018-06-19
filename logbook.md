@@ -161,4 +161,77 @@ Everything is Ok
 # fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil/municipio/shapefile/2018 on git:atualizacao-jun-2018 x [16:10:49]
 $ cd /alligo/code/fititnt/gis-dataset-brasil/
 
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 o [1:06:54]
+$ ogr2ogr -f GeoJSON temp/municipio.json municipio/shapefile/2018/BRMUE250GC_SIR.shp
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 o [1:09:35]
+$ ls -lha temp/municipio.json
+-rw-rw-r-- 1 fititnt fititnt 362M Jun 19 01:09 temp/municipio.json
+
+# NOTE: PQP 360MB é grande demais pra commitar.
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 o [1:11:29]
+$ 7z a temp/municipio.json.7z temp/municipio.json 
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive temp/municipio.json.7z
+
+Compressing  temp/municipio.json      
+
+Everything is Ok
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 o [1:18:20]
+$ ls -lha temp/municipio.json.7z                 
+-rw-rw-r-- 1 fititnt fititnt 55M Jun 19 01:18 temp/municipio.json.7z
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 o [1:19:09]
+$ rm -f municipio/geojson/municipio.json
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [1:30:03]
+$ ogr2ogr --version
+GDAL 2.1.3, released 2017/20/01
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [1:23:32]
+$ 7z a municipio/geojson/municipio.json.7z temp/municipio.json 
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive municipio/geojson/municipio.json.7z
+
+Compressing  temp/municipio.json      
+
+Everything is Ok
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [1:31:17]
+$ ogr2ogr -f GeoJSON temp/microrregiao.json microrregiao/shapefile/2018/BRMIE250GC_SIR.shp
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [1:34:10]
+$ ls -lha temp/microrregiao.json
+-rw-rw-r-- 1 fititnt fititnt 134M Jun 19 01:34 temp/microrregiao.json
+
+## NOTE: ainda é grande (fititnt, 2018-06-19 01:37)
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [1:39:07]
+$ rm -f microrregiao/geojson/microrregiao.json
+
+# fititnt at bravo in /alligo/code/fititnt/gis-dataset-brasil on git:atualizacao-jun-2018 x [1:39:40]
+$ 7z a microrregiao/geojson/microrregiao.json.7z temp/microrregiao.json
+
+7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
+p7zip Version 9.20 (locale=pt_BR.UTF-8,Utf16=on,HugeFiles=on,8 CPUs)
+Scanning
+
+Creating archive microrregiao/geojson/microrregiao.json.7z
+
+Compressing  temp/microrregiao.json      
+
+Everything is Ok
+
+## NOTE: ops, os arquivos do 7z salvam com a pasta. Deletar e refazer  (fititnt, 2018-06-19 01:43)
+
 ```
