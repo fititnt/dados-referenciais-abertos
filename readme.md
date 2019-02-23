@@ -33,6 +33,6 @@ original indisponível).
 
 **Emerson Rocha Luiz** <emerson@ieee.org>
 
-## Licensa
+## Licença
 
 [ODC Database Contents License (DbCL)](LICENSE).
