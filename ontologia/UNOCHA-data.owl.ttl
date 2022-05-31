@@ -1,0 +1,145 @@
+@prefix : <https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#> .
+
+<https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#> rdf:type owl:Ontology ;
+                                                                              rdfs:comment "Rascunho de mapeamento de teminologia de https://data.humdata.org/group/moz. Não projetado para uso em produção com dados reais (implicaria em planejamento muito mais especializado)"@pt .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#AcuteMalnutrition
+:AcuteMalnutrition rdf:type owl:Class ;
+                   rdfs:subClassOf :FoodSecurityAndNutrition .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#AdministrativeDivisions
+:AdministrativeDivisions rdf:type owl:Class ;
+                         rdfs:subClassOf :GeographyAndInfrastructure .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#AffectedPeople
+:AffectedPeople rdf:type owl:Class ;
+                rdfs:subClassOf :EmergencyResponseDatasets .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#Airports
+:Airports rdf:type owl:Class ;
+          rdfs:subClassOf :GeographyAndInfrastructure .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#BaselinePopulation
+:BaselinePopulation rdf:type owl:Class ;
+                    rdfs:subClassOf :PopulationAndSocio-economy .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#ConflictEvents
+:ConflictEvents rdf:type owl:Class ;
+                rdfs:subClassOf :CoordinationAndContext .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#CoordinationAndContext
+:CoordinationAndContext rdf:type owl:Class ;
+                        rdfs:subClassOf :EmergencyResponseDatasets .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#EducationFacilities
+:EducationFacilities rdf:type owl:Class ;
+                     rdfs:subClassOf :HealthAndEducation .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#EmergencyResponseDatasets
+:EmergencyResponseDatasets rdf:type owl:Class .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#FoodPrices
+:FoodPrices rdf:type owl:Class ;
+            rdfs:subClassOf :FoodSecurityAndNutrition .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#FoodSecurity
+:FoodSecurity rdf:type owl:Class ;
+              rdfs:subClassOf :FoodSecurityAndNutrition .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#FoodSecurityAndNutrition
+:FoodSecurityAndNutrition rdf:type owl:Class ;
+                          rdfs:subClassOf :EmergencyResponseDatasets .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#Funding
+:Funding rdf:type owl:Class ;
+         rdfs:subClassOf :CoordinationAndContext .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#GeographyAndInfrastructure
+:GeographyAndInfrastructure rdf:type owl:Class ;
+                            rdfs:subClassOf :EmergencyResponseDatasets .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#HealthAndEducation
+:HealthAndEducation rdf:type owl:Class ;
+                    rdfs:subClassOf :EmergencyResponseDatasets .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#HealthFacilities
+:HealthFacilities rdf:type owl:Class ;
+                  rdfs:subClassOf :HealthAndEducation .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#HumanitarianAccess
+:HumanitarianAccess rdf:type owl:Class ;
+                    rdfs:subClassOf :CoordinationAndContext .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#HumanitarianNeeds
+:HumanitarianNeeds rdf:type owl:Class ;
+                   rdfs:subClassOf :AffectedPeople .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#InternallyDisplacedPersons
+:InternallyDisplacedPersons rdf:type owl:Class ;
+                            rdfs:subClassOf :AffectedPeople .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#PopulatedPlaces
+:PopulatedPlaces rdf:type owl:Class ;
+                 rdfs:subClassOf :GeographyAndInfrastructure .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#PopulationAndSocio-economy
+:PopulationAndSocio-economy rdf:type owl:Class ;
+                            rdfs:subClassOf :EmergencyResponseDatasets .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#PovertyRate
+:PovertyRate rdf:type owl:Class ;
+             rdfs:subClassOf :PopulationAndSocio-economy .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#RefugeesAndPersonsOfConcern
+:RefugeesAndPersonsOfConcern rdf:type owl:Class ;
+                             rdfs:subClassOf :AffectedPeople .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#Returnees
+:Returnees rdf:type owl:Class ;
+           rdfs:subClassOf :AffectedPeople .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#Roads
+:Roads rdf:type owl:Class ;
+       rdfs:subClassOf :GeographyAndInfrastructure .
+
+
+###  https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#3W-WhoIsDoingWhatWhere
+<https://dados-referenciais-abertos.etica.ai/ontologia/UNOCHA-data.owl.ttl#3W-WhoIsDoingWhatWhere> rdf:type owl:Class ;
+                                                                                                   rdfs:subClassOf :CoordinationAndContext .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
