@@ -1,0 +1,398 @@
+@prefix : <https://dados-referenciais-abertos.etica.ai/ontologia/ai-etica-n1603-radix.owl.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://dados-referenciais-abertos.etica.ai/ontologia/ai-etica-n1603-radix.owl.ttl#> .
+
+<https://dados-referenciais-abertos.etica.ai/ontologia/ai-etica-n1603-radix.owl.ttl#> rdf:type owl:Ontology ;
+                                                                                    rdfs:comment "Rascunho rápido de exemplo. Não use em produção"@pt .
+
+#################################################################
+#    Classes
+#################################################################
+
+# ###  https://dados-referenciais-abertos.etica.ai/ontologia/ai-etica-n1603-radix.owl.ttl#OntoGender
+# :OntoGender rdf:type owl:Class ;
+#             rdfs:comment "Obviously not official version. This is just a quick test using UFO and gender/sex ontology. And even them, it is a very, very simplified version of the authors"@en ;
+#             rdfs:isDefinedBy "https://www.researchgate.net/post/How-to-practically-use-a-Upper-or-Core-Ontology"^^xsd:anyURI ;
+#             rdfs:seeAlso "https://www.genderbread.org/"@en .
+
+
+# Using example from https://nemo-ufes.github.io/gufo/#advancedqualities
+# :ShirtSize rdf:type owl:Class ;
+#         rdfs:subClassOf gufo:QualityValue ;
+#         owl:equivalentClass [ rdf:type owl:Class ;
+#                                 owl:oneOf ( :S
+#                                             :M
+#                                             :L
+#                                             :XL
+#                                         )
+#                             ] .
+
+# :S rdf:type :ShirtSize .
+# :M rdf:type :ShirtSize .
+# :L rdf:type :ShirtSize .
+# :XL rdf:type :ShirtSize .
+
+:AnatomicalSexType rdf:type owl:Class ;
+        rdfs:seeAlso "https://www.genderbread.org/"@en ;
+        rdfs:subClassOf gufo:QualityValue ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :MaleSex
+                                            :FemaleSex
+                                            :IntersexSex
+                                        )
+                            ] .
+
+:MaleSex rdf:type :AnatomicalSexType .
+:FemaleSex rdf:type :AnatomicalSexType .
+:IntersexSex rdf:type :AnatomicalSexType .
+
+:GenderIdentityBinaryType rdf:type owl:Class ;
+        rdfs:comment "Obviously not official version. This is just a quick test using UFO and gender/sex ontology. And even them, it is a very, very simplified version of the authors"@en ;
+        rdfs:seeAlso "https://www.researchgate.net/post/How-to-practically-use-a-Upper-or-Core-Ontology"^^xsd:anyURI ;
+        rdfs:subClassOf gufo:QualityValue ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :CisGenderIdentity
+                                            :TransGenderIdentity
+                                        )
+                            ] .
+
+:CisGenderIdentity rdf:type :GenderIdentityBinaryType .
+:TransGenderIdentity rdf:type :GenderIdentityBinaryType .
+
+:GenderIdentityNonBinaryType rdf:type owl:Class ;
+        rdfs:comment "Obviously not official version. This is just a quick test using UFO and gender/sex ontology. And even them, it is a very, very simplified version of the authors"@en ;
+        rdfs:seeAlso "https://www.researchgate.net/post/How-to-practically-use-a-Upper-or-Core-Ontology"^^xsd:anyURI ;
+        rdfs:subClassOf gufo:QualityValue ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :AgenderGenderIdentity
+                                            :DemigenderGenderIdentity
+                                            :ThirdGenderGenderIdentity
+                                            :GenderfluidGenderIdentity
+                                            :GenderNeutralGenderIdentity
+                                        )
+                            ] .
+
+:AgenderGenderIdentity rdf:type :GenderIdentityNonBinaryType .
+:DemigenderGenderIdentity rdf:type :GenderIdentityNonBinaryType .
+:ThirdGenderGenderIdentity rdf:type :GenderIdentityNonBinaryType .
+:GenderfluidGenderIdentity rdf:type :GenderIdentityNonBinaryType .
+:GenderNeutralGenderIdentity rdf:type :GenderIdentityNonBinaryType .
+
+
+
+#### Test test test
+
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Object ;
+        rdf:type gufo:Kind .
+
+
+:Earthquake rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Event .
+
+:1985MexicoCityEarthquake rdf:type  :Earthquake ;
+                        gufo:hasBeginPointInXSDDateTimeStamp "1985-09-19T13:17:50Z"^^xsd:dateTimeStamp .
+
+
+
+:John rdf:type :Person .
+
+:Brain rdf:type owl:Class ; 
+        rdfs:subClassOf gufo:Object .
+
+:JohnsBrain rdf:type :Brain ;
+        gufo:isComponentOf :John .
+
+
+:hasMassInKilograms rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :PhysicalObject;
+                        rdfs:range xsd:double .
+
+
+:Moon rdf:type :PhysicalObject ;
+        :hasMassInKilograms "7.34767309E22"^^xsd:double .
+
+:Mass rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Quality .
+
+:Moon rdf:type :PhysicalObject .
+
+# :MoonsMass rdf:type :Mass ;
+#                 gufo:inheresIn :Moon ;
+#                 gufo:hasQualityValue "7.34767309E22"^^xsd:double .
+
+## This gives error messages; Using simpler 2.4. Qualities - Basic pattern
+# :Mass rdfs:subClassOf [ rdf:type owl:Restriction ;
+#                         owl:onProperty gufo:inheresIn ;
+#                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+#                         owl:onClass :PhysicalObject ;
+#                        ] .
+
+:massInKilograms rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf gufo:hasQualityValue ;
+                        rdfs:domain :Mass ;
+                        rdfs:range xsd:double .
+
+:massInShortTons rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf gufo:hasQualityValue ;
+                        rdfs:domain :Mass ;
+                        rdfs:range xsd:double .
+
+:MoonsMass rdf:type :Mass ;
+                :massOf :Moon ;
+                :massInKilograms "7.34767309E22"^^xsd:double ;
+                :massInShortTons "8.099423160000001E19"^^xsd:double .
+
+### 2.5. Qualities - Advanced usage
+
+:ShirtSize rdf:type owl:Class ;
+        rdfs:subClassOf gufo:QualityValue ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :S
+                                            :M
+                                            :L
+                                            :XL
+                                        )
+                            ] .
+
+:S rdf:type :ShirtSize .
+:M rdf:type :ShirtSize .
+:L rdf:type :ShirtSize .
+:XL rdf:type :ShirtSize .
+
+# Adiciodo fora do tutorial
+:Color rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Quality .
+
+:ColorValueInRGB rdf:type owl:Class ;
+                rdfs:subClassOf gufo:QualityValue .
+
+:hasColorValueInRGB rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf gufo:hasReifiedQualityValue ;
+                    rdfs:domain :Color ;
+                    rdfs:range :ColorValueInRGB .
+
+:hasRedValueComponent rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf gufo:hasValueComponent ;
+                    rdfs:domain :ColorValueInRGB ;
+                    rdfs:range xsd:nonNegativeInteger .
+
+:hasGreenValueComponent rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf gufo:hasValueComponent ;
+                        rdfs:domain :ColorValueInRGB ;
+                        rdfs:range xsd:nonNegativeInteger .
+
+:hasBlueValueComponent rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf gufo:hasValueComponent ;
+                    rdfs:domain :ColorValueInRGB ;
+                    rdfs:range xsd:nonNegativeInteger .
+
+
+:YvesKleinBlueMonochromePainting rdf:type :PhysicalObject .
+
+:YvesKleinBlueMonochromePaintingColor rdf:type :Color ;
+                    gufo:inheresIn :YvesKleinBlueMonochromePainting ;
+                    :hasColorValueInRGB [ 
+                        rdf:type :ColorValueInRGB ;
+                        :hasRedValueComponent "0"^^xsd:nonNegativeInteger ;
+                        :hasGreenValueComponent "47"^^xsd:nonNegativeInteger ;
+                        :hasBlueValueComponent "167"^^xsd:nonNegativeInteger ] .
+
+
+### 2.6. Intrinsic Modes
+
+:Headache rdf:type owl:Class ;
+        rdfs:subClassOf gufo:IntrinsicMode .
+
+:headacheOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf gufo:inheresIn ;
+            rdfs:domain :Headache ;
+            rdfs:range :Person .
+
+:johnsHeadache rdf:type :Headache ;
+            :headacheOf :John;
+            gufo:hasBeginPointInXSDDateTimeStamp "2019-11-19T14:14:50Z"^^xsd:dateTimeStamp .
+
+:HeadacheIntensity rdf:type owl:Class ;
+               rdfs:subClassOf gufo:Quality .
+
+:johnsHeadacheIntensity rdf:type :HeadacheIntensity ;
+            gufo:inheresIn :johnsHeadache  ;
+            gufo:hasQualityValue "2"^^xsd:nonNegativeInteger .
+
+### 2.7. Extrinsic Aspects
+
+:Marriage rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Relator .
+
+:marriageInvolves rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:mediates ;
+                rdfs:domain :Marriage ;
+                rdfs:range :Person .
+
+:John rdf:type :Person .
+:Mary rdf:type :Person .
+
+:JohnMarysMarriage rdf:type :Marriage ;
+                :marriageInvolves :John ,
+                                  :Mary .
+
+:Employment rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Relator .
+
+:Employee rdf:type owl:Class ;
+        rdfs:subClassOf :Person .
+
+:Organization rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Object .
+
+:Employer rdf:type owl:Class ;
+        rdfs:subClassOf :Organization .
+
+:involvesEmployee rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:mediates ;
+                rdfs:domain :Employment ;
+                rdfs:range :Employee .
+
+:involvesEmployer rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:mediates ;
+                rdfs:domain :Employment ;
+                rdfs:range :Employer .
+
+### Funciona ok
+# :Marriage rdfs:subClassOf [ rdf:type owl:Restriction ;
+#                             owl:onProperty gufo:mediates ;
+#                             owl:someValuesFrom :Person
+#                           ] .
+
+:AmazonInc rdf:type :Organization .
+
+:ServiceAgreement rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Relator .
+
+:JohnAmazonAgreement rdf:type :ServiceAgreement ;
+                :mediates :AmazonInc ,
+                            :John .
+
+:JohnsRightToServiceProvisioning rdf:type gufo:ExtrinsicMode ;
+                gufo:inheresIn :John ;
+                gufo:externallyDependsOn :AmazonInc ;
+                gufo:isAspectProperPartOf :JohnAmazonAgreement .
+
+:AmazonsDutyToProvideService rdf:type gufo:ExtrinsicMode ;
+                gufo:inheresIn :AmazonInc ;
+                gufo:externallyDependsOn :John ;
+                gufo:isAspectProperPartOf :JohnAmazonAgreement .
+
+:AmazonsRightToPayment rdf:type gufo:ExtrinsicMode ;
+                gufo:inheresIn :AmazonInc ;
+                gufo:externallyDependsOn :John ;
+                gufo:isAspectProperPartOf :JohnAmazonAgreement .
+
+:JohnsDutyToPay rdf:type gufo:ExtrinsicMode ;
+                gufo:inheresIn :John ;
+                gufo:externallyDependsOn :AmazonInc ;
+                gufo:isAspectProperPartOf :JohnAmazonAgreement .
+
+
+### 2.8. Events ________________________________________________________________
+
+:NaturalDisaster rdf:type owl:Class ;
+                rdfs:subClassOf gufo:Event .
+
+:Earthquake rdf:type owl:Class ;
+            rdfs:subClassOf :NaturalDisaster ;
+            owl:disjointWith :Tsunami .
+
+:Tsunami rdf:type owl:Class ;
+        rdfs:subClassOf :NaturalDisaster .
+
+:SoccerMatch rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Event .
+
+:WorldCup1970Final rdf:type :SoccerMatch .
+
+:WorldCup1970Final  gufo:historicallyDependsOn :BrazilUruguayWorldCup1970SemiFinal .
+:WorldCup1970Final  gufo:historicallyDependsOn :ItalyWestGermanyWorldCup1970SemiFinal .
+
+
+:SoccerMatchPlayer rdf:type owl:Class ;
+                rdfs:subClassOf :Person .
+
+:participatedInMatch rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf gufo:participatedIn ;
+                    rdfs:domain :SoccerMatchPlayer ;
+                    rdfs:range :SoccerMatch .
+
+:Pele rdf:type :Person ;
+    :participatedInMatch :WorldCup1970Final .
+
+:WorldCup1970 rdf:type gufo:Event .
+
+:WorldCup1970Final rdf:type :SoccerMatch ;
+                gufo:isEventProperPartOf :WorldCup1970 .
+
+:JohnMarysMarriage rdf:type :Marriage ;
+                :marriageInvolves :John ,
+                                    :Mary ;
+                gufo:wasCreatedIn :JohnMarysWedding.
+
+:JohnMarysWedding rdf:type gufo:Event ;
+                    gufo:hasBeginPointInXSDDate "2001-12-12"^^xsd:date ;
+                    gufo:hasEndPointInXSDDate "2001-12-12"^^xsd:date .
+
+:Challenger rdf:type gufo:FunctionalComplex ;
+        gufo:wasTerminatedIn :Challengers10thFlight .
+
+:Challengers10thLaunch rdf:type gufo:Event ;
+    gufo:hasBeginPointInXSDDate "1986-01-28"^^xsd:date ;
+    gufo:hasEndPointInXSDDate "1986-01-28"^^xsd:date .
+
+:ChallengerRightBoosterSeal rdf:type gufo:FunctionalComplex ;
+        gufo:isComponentOf :Challenger .
+
+:ChallengerRightBoosterSealFlaw rdf:type gufo:IntrinsicMode ;
+        gufo:inheresIn :ChallengerRightBoosterSeal ;
+        gufo:manifestedIn :Challengers10thLaunch .
+
+
+#### 2.9. Situations
+
+:JohnWeighs80Kgin2015 rdf:type gufo:QualityValueAttributionSituation ;
+                    gufo:concernsQualityType :Mass ;
+                    gufo:concernsQualityValue "80.0"^^xsd:double ;
+                    gufo:hasBeginPointInXSDDate "2015-01-01"^^xsd:date ;
+                    gufo:hasEndPointInXSDDate "2015-12-31"^^xsd:date .
+
+:JohnWeights70Kgin2018 rdf:type gufo:QualityValueAttributionSituation ;
+                    gufo:concernsQualityType :Mass ;
+                    gufo:concernsQualityValue "70.0"^^xsd:double ;
+                    gufo:hasBeginPointInXSDDate "2018-01-01"^^xsd:date ;
+                    gufo:hasEndPointInXSDDate "2018-12-31"^^xsd:date .
+
+:John gufo:standsInQualifiedAttribution :JohnWeighs80Kgin2015 ;
+      gufo:standsInQualifiedAttribution :JohnWeights70Kgin2018 .
+
+:Child rdf:type owl:Class ;
+   rdfs:subClassOf :Person .
+
+:Adult rdf:type owl:Class ;
+   rdfs:subClassOf :Person .
+
+
+## bugs on gufo:TemporaryInstantiationSituation? It shows as classes
+## instead of subtype of gufo:Situation. Strange
+# :JohnWasAChildFrom1977to1995 rdf:type gufo:TemporaryInstantiationSituation ;
+#                             gufo:concernsNonRigidType :Child ;
+#                             gufo:hasBeginPointInXSDDate "1977-10-01"^^xsd:date ;
+#                             gufo:hasEndPointInXSDDate "1995-09-31"^^xsd:date .
+
+# :JohnIsAdultFrom1995 rdf:type gufo:TemporaryInstantiationSituation ;
+#                             gufo:concernsNonRigidType :Adult ;
+#                             gufo:hasBeginPointInXSDDate "1995-10-01"^^xsd:date .
+
