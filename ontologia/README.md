@@ -21,3 +21,8 @@ https://inde.gov.br/
 ## UNOCHA-data.owl.ttl
 - [UNOCHA-data.owl.ttl](UNOCHA-data.owl.ttl)
   - Cópia rápida de _Data Grid Completeness_ de https://data.humdata.org/group/moz em 2022-05-31
+
+
+## External ontologies
+- http://ontologydesignpatterns.org/
+  - http://ontologydesignpatterns.org/ont/fao/agrovoc.owl
