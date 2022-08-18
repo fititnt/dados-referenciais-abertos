@@ -1,0 +1,2 @@
+# The .shp are too big to commit. We will commit compressed 7z 
+*.shp
